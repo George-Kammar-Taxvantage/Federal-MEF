@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.irs.gov/efile" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.irs.gov/efile" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xsd:annotation>
+		<xsd:documentation>
+			<Description>IRS e-file Tax Schema - Return Header for Form 4868</Description>
+			<MaturityLevel>Final Drop 4 Schemas</MaturityLevel>
+			<ReleaseDate>September 24, 2026</ReleaseDate>
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="../../Common/efileTypes.xsd"/>
+	<xsd:element name="ReturnHeader" type="ReturnHeaderType"/>
+	<xsd:complexType name="ReturnHeaderType">
+		<xsd:annotation>
+			<xsd:documentation>Content model for Return Header - Form 4868</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<!-- Date and Time Stamp -->
+			<xsd:element name="ReturnTs" type="TimestampType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<ELFFieldNumber>SUM0260</ELFFieldNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Tax Year -->
+			<xsd:element name="TaxYr" type="YearType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<ELFFieldNumber>NL</ELFFieldNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Tax Period Begin Date -->
+			<xsd:element name="TaxPeriodBeginDt" type="DateType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<ELFFieldNumber>NL</ELFFieldNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Tax Period End Date -->
+			<xsd:element name="TaxPeriodEndDt" type="DateType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<ELFFieldNumber>NL</ELFFieldNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Consortium Return Code -->
+			<xsd:element name="ConsortiumReturnCd" type="ConsortiumType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<ELFFieldNumber>SUM0285</ELFFieldNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Intermediate Service Provider Number -->
+			<xsd:element name="ISPNum" type="ISPType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<ELFFieldNumber>SUM0030</ELFFieldNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Software Identification -->
+			<xsd:element name="SoftwareId" type="SoftwareIdType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<ELFFieldNumber>SUM0230</ELFFieldNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Software Version -->
+			<xsd:element name="SoftwareVersionNum" type="SoftwareVersionType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<ELFFieldNumber>SUM0240</ELFFieldNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Originator -->
+			<xsd:element name="OriginatorGrp">
+				<xsd:annotation>
+					<xsd:documentation>
+						<ELFFieldNumber>NL</ELFFieldNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<!-- EFIN -->
+						<xsd:element name="EFIN" type="EFINType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<ELFFieldNumber>SUM0020</ELFFieldNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<!-- Originator Type Code -->
+						<xsd:element name="OriginatorTypeCd" type="OriginatorType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<ELFFieldNumber>NL</ELFFieldNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<!-- Practitioner PIN -->
+						<xsd:element name="PractitionerPINGrp" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<ELFFieldNumber>NL</ELFFieldNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+							<xsd:complexType>
+								<xsd:sequence>
+									<!-- EFIN -->
+									<xsd:element name="EFIN" type="EFINType">
+										<xsd:annotation>
+											<xsd:documentation>
+												<ELFFieldNumber>AUTH0090</ELFFieldNumber>
+											</xsd:documentation>
+										</xsd:annotation>
+									</xsd:element>
+									<!--PIN -->
+									<xsd:element name="PIN" type="PINType">
+										<xsd:annotation>
+											<xsd:documentation>
+												<ELFFieldNumber>AUTH0090</ELFFieldNumber>
+											</xsd:documentation>
+										</xsd:annotation>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- Self-select PIN -->
+			<xsd:element name="SelfSelectPINGrp" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<ELFFieldNumber>NL</ELFFieldNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="PrimaryBirthDt" type="DateType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<ELFFieldNumber>AUTH0010</ELFFieldNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="SpouseBirthDt" type="DateType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<ELFFieldNumber>AUTH0040</ELFFieldNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="PrimaryPriorYearAGIAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<ELFFieldNumber>AUTH0020</ELFFieldNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="SpousePriorYearAGIAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<ELFFieldNumber>AUTH0050</ELFFieldNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="PrimaryPriorYearPIN" type="PINType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Primary Prior Year PIN</Description>
+									<ELFFieldNumber>AUTH0025</ELFFieldNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+												<xsd:element name="SpousePriorYearPIN" type="PINType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Spouse Prior Year PIN</Description>
+									<ELFFieldNumber>AUTH0055</ELFFieldNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+											</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- PIN Type Code -->
+			<xsd:element name="PINTypeCd" type="PINCodeType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<ELFFieldNumber>AUTH0008</ELFFieldNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Jurat Disclosure Code -->
+			<xsd:element name="JuratDisclosureCd" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<ELFFieldNumber>AUTH0075</ELFFieldNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="StringType">
+						<xsd:enumeration value="Form 4868"/>
+						<xsd:enumeration value="Form 4868 with Practitioner PIN and EFW"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<!-- Primary PIN entered by -->
+			<xsd:element name="PrimaryPINEnteredByCd" type="PINEnteredByType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<ELFFieldNumber>AUTH0080</ELFFieldNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Spouse PIN entered by -->
+			<xsd:element name="SpousePINEnteredByCd" type="PINEnteredByType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<ELFFieldNumber>AUTH0080</ELFFieldNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Primary Signature -->
+			<xsd:element name="PrimarySignaturePIN" type="PINType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<ELFFieldNumber>AUTH0035</ELFFieldNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Spouse Signature -->
+			<xsd:element name="SpouseSignaturePIN" type="PINType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<ELFFieldNumber>AUTH0065</ELFFieldNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Primary Signature Date -->
+			<xsd:element name="PrimarySignatureDt" type="DateType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<ELFFieldNumber>AUTH0070</ELFFieldNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Spouse Signature Date -->
+			<xsd:element name="SpouseSignatureDt" type="DateType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<ELFFieldNumber>AUTH0070</ELFFieldNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Return Identifiers -->
+			<xsd:element name="ReturnTypeCd">
+				<xsd:annotation>
+					<xsd:documentation>
+						<ELFFieldNumber>NL</ELFFieldNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="StringType">
+						<xsd:enumeration value="4868"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<!-- Filer -->
+			<xsd:element name="Filer">
+				<xsd:annotation>
+					<xsd:documentation>
+						<ELFFieldNumber>NL</ELFFieldNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="PrimarySSN" type="SSNType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<ELFFieldNumber>F4868-0090</ELFFieldNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="SpouseSSN" type="SSNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<ELFFieldNumber>F4868-0100</ELFFieldNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="NameLine1Txt" type="NameLine1Type">
+							<xsd:annotation>
+								<xsd:documentation>
+									<ELFFieldNumber>F4868-0030</ELFFieldNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="InCareOfNm" type="InCareOfNameType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<ELFFieldNumber>NL</ELFFieldNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="PrimaryNameControlTxt" type="PersonNameControlType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<ELFFieldNumber>F4868-0010</ELFFieldNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="SpouseNameControlTxt" type="PersonNameControlType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<ELFFieldNumber>F4868-0020</ELFFieldNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:choice>
+							<xsd:element name="USAddress" type="USAddressType">
+								<xsd:annotation>
+									<xsd:documentation>
+										<ELFFieldNumber>F4868-0040 F4868-0050 F4868-0060 F4868-0070</ELFFieldNumber>
+									</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="ForeignAddress" type="ForeignAddressType">
+								<xsd:annotation>
+									<xsd:documentation>
+										<ELFFieldNumber>F4868-0032 F4868-0034 F4868-0036</ELFFieldNumber>
+									</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:choice>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<!-- Binary Attachment Count -->
+		<xsd:attribute name="binaryAttachmentCnt" type="IntegerNNType" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					<xsd:Description>The number of binary attachments in the return</xsd:Description>
+					<ELFFieldNumber>NL</ELFFieldNumber>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+</xsd:schema>

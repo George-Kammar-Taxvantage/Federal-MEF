@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReturnDocuments xmlns="http://www.irs.gov/efile" returnVersion="2011v0.1">
+
+	<!-- annotation>
+		<documentation>
+			<Description>IRS e-file Income Tax - List of Documents that can be filed with a 2350 extension</Description>
+			<TaxYear>2011</TaxYear>
+			<MaturityLevel>Initial Release</MaturityLevel>
+			<ReleaseDate>May 6, 2011</ReleaseDate>
+		<documentation>
+	</annotation -->
+
+	<!-- Form 2350 -->
+	<ReturnDocument>
+		<ReturnDocumentRootName>IRS2350</ReturnDocumentRootName>
+		<DocumentType>Form</DocumentType>
+		<DisplayName>2350</DisplayName>
+	</ReturnDocument>
+
+	<!-- Form 2350 Statement -->
+	<ReturnDocument>
+		<ReturnDocumentRootName>OtherSignatureExplanationStmt</ReturnDocumentRootName>
+		<DocumentType>Statement</DocumentType>
+		<DisplayName>Other Signature Explanation Statement</DisplayName>
+	</ReturnDocument>
+	
+	<!-- Form 2350 Statement -->
+	<ReturnDocument>
+		<ReturnDocumentRootName>SPRUniqueDataStatement</ReturnDocumentRootName>
+		<DocumentType>Statement</DocumentType>
+		<DisplayName>Scanned Paper Return (SPR) Unique Data Statement</DisplayName>
+	</ReturnDocument>
+
+	<!-- Form 2350 Statement -->
+	<ReturnDocument>
+		<ReturnDocumentRootName>SpouseSignatureStatement</ReturnDocumentRootName>
+		<DocumentType>Statement</DocumentType>
+		<DisplayName>Spouse Signature Statement</DisplayName>
+	</ReturnDocument>
+
+	<!-- IRS Payment Record -->
+	<ReturnDocument>
+		<ReturnDocumentRootName>IRSPayment</ReturnDocumentRootName>
+		<DocumentType>Payment</DocumentType>
+		<DisplayName>IRS Payment</DisplayName>
+	</ReturnDocument>
+
+	<!-- IRS ES Payment Record -->
+	<ReturnDocument>
+		<ReturnDocumentRootName>IRSESPayment</ReturnDocumentRootName>
+		<DocumentType>Payment</DocumentType>
+		<DisplayName>IRS ES Payment</DisplayName>
+	</ReturnDocument>
+	
+	<!-- General Dependency Small for any Form/Schedule -->
+	<ReturnDocument>
+		<ReturnDocumentRootName>GeneralDependencySmall</ReturnDocumentRootName>
+		<DocumentType>Attachment</DocumentType>
+		<DisplayName>General Dependency Small</DisplayName>
+	</ReturnDocument>
+
+</ReturnDocuments> 

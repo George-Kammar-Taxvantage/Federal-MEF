@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ReturnDocuments xmlns="http://www.irs.gov/efile" returnVersion="2011v0.1">
+
+	<!-- annotation>
+		<documentation>
+			<Description>IRS e-file Income Tax - List of Documents that can be filed with a 4868 extension</Description>
+			<TaxYear>2005</TaxYear>
+			<MaturityLevel>Initial Release</MaturityLevel>
+			<ReleaseDate>July 29, 2005</ReleaseDate>
+		<documentation>
+	</annotation -->
+
+	<!-- Form 4868 -->
+	<ReturnDocument>
+		<ReturnDocumentRootName>IRS4868</ReturnDocumentRootName>
+		<DocumentType>Form</DocumentType>
+		<DisplayName>4868</DisplayName>
+	</ReturnDocument>
+
+	<!-- Form payment -->
+	<ReturnDocument>
+		<ReturnDocumentRootName>IRSPayment</ReturnDocumentRootName>
+		<DocumentType>Payment</DocumentType>
+		<DisplayName>IRS Payment</DisplayName>
+	</ReturnDocument>
+	
+	<!-- Scanned Paper Return (SPR) Unique Data Statement -->
+	<ReturnDocument>
+		<ReturnDocumentRootName>SPRUniqueDataStatement</ReturnDocumentRootName>
+		<DocumentType>Statement</DocumentType>
+		<DisplayName>Scanned Paper Return (SPR) Unique Data Statement</DisplayName>
+	</ReturnDocument>
+
+	<!-- Form ES payment -->
+	<ReturnDocument>
+		<ReturnDocumentRootName>IRSESPayment</ReturnDocumentRootName>
+		<DocumentType>Payment</DocumentType>
+		<DisplayName>IRS ES Payment</DisplayName>
+	</ReturnDocument>
+	
+	<!-- General Dependency Small for any Form/Schedule -->
+	<ReturnDocument>
+		<ReturnDocumentRootName>GeneralDependencySmall</ReturnDocumentRootName>
+		<DocumentType>Attachment</DocumentType>
+		<DisplayName>General Dependency Small</DisplayName>
+	</ReturnDocument>
+
+</ReturnDocuments>
